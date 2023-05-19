@@ -82,6 +82,10 @@ function screenDisplay(){
     
     decimalNumber();
 
+    backspace();
+
+    keyboardSupport();
+
 }
 
 
@@ -128,20 +132,42 @@ function getOperatorInput(){
 
         operatorButton.addEventListener('click', function(){
 
+
+            if(!displayString){
+                return;
+            }
+
+            
+
             let splitDisplayString = displayString.split(' ');
 
             let lastDisplayArrayItem = splitDisplayString[splitDisplayString.length - 1];
 
-                //if the final element of  displayArray is not an operator, continue executing the code, else, return.
+
+
+            let splitLastElement = lastDisplayArrayItem.split('');
+
+            let checkDecimal = splitLastElement.includes('.')
+
+            console.log(lastDisplayArrayItem);
+
+               
             if(!lastDisplayArrayItem){
 
                 return; 
 
+            //if the final element of  displayArray is not an operator, continue executing the code, else, return.
             //Is it possible to make this shorter?
 
             }else if (lastDisplayArrayItem === ' + '|| lastDisplayArrayItem === ' - ' || lastDisplayArrayItem === ' x ' || lastDisplayArrayItem === ' / '){
                 
                 return;
+
+            // Doesn't automatically add two operands when executed
+            // }else if(checkDecimal === true ){
+            //     displayArray.push('0');
+            //     displayString = displayArray.join('');
+            //     screen.textContent = displayString;    
 
             }else if(splitDisplayString.length >= 3){
 
@@ -309,9 +335,9 @@ function decimalNumber(){
 
         let splitDisplayString = displayString.split(' ');//Big space
 
-        let latestElement = splitDisplayString.slice(-1).toString();
+        let latestChar = splitDisplayString.slice(-1).toString();
 
-        let splitLatestElement = latestElement.split('');//small space
+        let splitLatestElement = latestChar.split('');//small space
 
         let verifyLatestElement = splitLatestElement.includes('.');
 
@@ -319,7 +345,7 @@ function decimalNumber(){
 
         if(verifyLatestElement === false){
 
-            if(latestElement === ''){
+            if(latestChar === ''){
                 console.log('bruh');
                 displayArray.push('0');
             }
@@ -340,5 +366,65 @@ function decimalNumber(){
 
 
 }
+
+
+
+// Not using at the moment
+function latestCharacters (){
+
+    if (displayString === undefined){
+        return;
+    }
+
+    console.log(displayString);
+
+    let splitDisplayString = displayString.split('');//Big space
+
+    let latestChar = splitDisplayString.slice(-1).toString();
+    
+    console.log(latestChar);
+
+    return latestChar;
+}
+
+
+function backspace (){
+
+    let backspaceButton = document.querySelector('#backspace');
+
+    backspaceButton.addEventListener('click', function(){
+
+        displayArray.pop();
+        displayString = displayArray.join('');
+        screen.textContent = displayString;
+
+        if(displayArray.length < 1){
+            screen.textContent = '0';
+        }
+        return;
+    })
+
+}
+
+
+function keyboardSupport(){
+    window.addEventListener('keydown', function(e){
+        console.log(e);
+        let buttonClick = document.querySelector(`button[data-key="${e.key}"]`);
+        console.log(`button[data-key="${e.key}"]`);
+        console.log(buttonClick);
+        if(!buttonClick){
+            return;
+        }
+        buttonClick.click();
+        
+    })
+}
+
+
+
+//Need to refactor this codebase, too much repeating code that can be refactored into functions
+//Might have to create a function to get latest element and latest string
+
 
 screenDisplay();
