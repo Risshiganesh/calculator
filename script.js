@@ -11,6 +11,8 @@ let b = 0;
 //Calculator screen reference
 const screen = document.querySelector('#calculator-screen');
 
+const screenAnswer = document.querySelector('#calculator-answer');
+
 //Was equal clicked?
 let verifyEqual = 'no';
 
@@ -109,9 +111,9 @@ function getNumberInput(){
 
             screen.textContent = displayString; 
 
-            console.log(displayArray);
+            //console.log(displayArray);
 
-             console.log(displayString);
+            //console.log(displayString);
             
         })
     })
@@ -132,11 +134,17 @@ function getOperatorInput(){
 
         operatorButton.addEventListener('click', function(){
 
+            
+
 
             if(!displayString){
                 return;
             }
 
+            if (verifyEqual === 'yes'){
+                verifyEqual = 'no';
+                
+            }
             
 
             let splitDisplayString = displayString.split(' ');
@@ -149,7 +157,7 @@ function getOperatorInput(){
 
             let checkDecimal = splitLastElement.includes('.')
 
-            console.log(lastDisplayArrayItem);
+           // console.log(lastDisplayArrayItem);
 
                
             if(!lastDisplayArrayItem){
@@ -174,12 +182,12 @@ function getOperatorInput(){
                 let result = operate(displayString); //operate on the pre-existing 3 elements
                 let checkResult = verifyResult(result); 
                 let resultToString = checkResult.toString();
-                console.log(result);
-                console.log(displayArray)
+                // console.log(result);
+                // console.log(displayArray);
                 displayArray = []; // clear the displaArray
 
                 displayArray.push(resultToString); //Add the result to the now emptied displayArray
-                console.log(displayArray);
+                // console.log(displayArray);
 
             }
 
@@ -226,13 +234,13 @@ function operateExpression(){
         let checkResult = verifyResult(result);
         let resultToString = checkResult.toString();
 
-        screen.textContent = resultToString;
+        screenAnswer.textContent = resultToString;
         
         verifyEqual = 'yes';
 
-        console.log('You clicked equal!')
-        console.log(splitDisplayString);
-        console.log(splitDisplayString.length);
+        // console.log('You clicked equal!')
+        // console.log(splitDisplayString);
+        // console.log(splitDisplayString.length);
         return;
            
     })
@@ -268,7 +276,7 @@ function verifyResult (result){
         displayString = 0;
         screen.textContent = displayString;
         alert('You can\'t divide by zero!');
-        console.log('verifying')
+        //console.log('verifying')
         return;
 
     }else if (isNaN(result)){
@@ -277,7 +285,7 @@ function verifyResult (result){
         displayString = 0;
         screen.textContent = displayString;
         alert('Does not compute');
-        console.log('verifying')
+        //console.log('verifying')
         return;
 
     }else if(result%1 != 0){
@@ -299,6 +307,7 @@ function clearEverything(){
     displayArray = [];
     displayString = 0;
     screen.textContent = displayString;
+    screenAnswer.textContent = '';
     verifyEqual = 'no';
 
     console.log('Everything cleared!')
@@ -341,12 +350,11 @@ function decimalNumber(){
 
         let verifyLatestElement = splitLatestElement.includes('.');
 
-        console.log(verifyLatestElement);
+       // console.log(verifyLatestElement);
 
         if(verifyLatestElement === false){
 
             if(latestChar === ''){
-                console.log('bruh');
                 displayArray.push('0');
             }
 
@@ -356,8 +364,8 @@ function decimalNumber(){
 
         }
         
-        console.log(latestElement);
-        console.log(displayString);
+        // console.log(latestElement);
+        // console.log(displayString);
         
 
 
@@ -376,13 +384,13 @@ function latestCharacters (){
         return;
     }
 
-    console.log(displayString);
+    //console.log(displayString);
 
     let splitDisplayString = displayString.split('');//Big space
 
     let latestChar = splitDisplayString.slice(-1).toString();
     
-    console.log(latestChar);
+    //console.log(latestChar);
 
     return latestChar;
 }
@@ -409,10 +417,10 @@ function backspace (){
 
 function keyboardSupport(){
     window.addEventListener('keydown', function(e){
-        console.log(e);
+        //console.log(e);
         let buttonClick = document.querySelector(`button[data-key="${e.key}"]`);
-        console.log(`button[data-key="${e.key}"]`);
-        console.log(buttonClick);
+        //console.log(`button[data-key="${e.key}"]`);
+        //console.log(buttonClick);
         if(!buttonClick){
             return;
         }
