@@ -13,7 +13,7 @@ button{
     color: rgb(207, 207, 207);
     background-color: rgb(94, 94, 94);
     border: 1px solid rgb(94, 94, 94);
-    transition: all .3s;
+    transition: all .2s;
     box-shadow: 6px 6px 12px rgb(59, 59, 59),
                 -6px -6px 12px rgb(117, 117, 117);
 }
@@ -23,11 +23,28 @@ body{
     background-color: rgb(94, 94, 94);
 }
 
+a{
+    color: rgb(207, 207, 207);
+    text-decoration: none;
+    font-size: 25px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 1000;
+}
+
+a:hover{
+    color: white;
+}
+
+h1{
+    cursor: default;
+}
+
 /*********************IDs****************/
 
 #container{
     display: flex;
     flex-grow: 1;
+    /* border: 1px solid  black; */
     
 }
 
@@ -53,6 +70,9 @@ body{
     align-content: center;
     justify-content: center;
     padding: 15px;
+
+    padding-left: 45px;
+    padding-right: 45px;
 }
 
 #calculator-screen-area{
@@ -89,19 +109,26 @@ body{
     display: flex;
     font-size: 100px;
     font-weight: lighter;
-    font-family: 'Arial Narrow Bold', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     color: rgb(207, 207, 207);/*text color*/
     padding-right: 15px;
    
+
     
     
     
+}
+
+#calculator-screen:hover{
+    color: white;
 }
 
 #answer-div{
     display: flex;
     justify-content: flex-end;
     margin-bottom: 5px;
+
+
    
 }
 
@@ -109,20 +136,18 @@ body{
 #calculator-answer{
 
     display: flex; 
-    /* flex: auto; */
-    font-size: 80px;
-    font-weight: lighter;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+    font-weight: 500;
+    font-family: 'Titillium Web', sans-serif;
     color: rgb(207, 207, 207);
-    padding-right: 15px;
-    /* position: relative; */
+    padding-right: 25px;
     align-self: flex-end;
-    justify-self: flex-end;
-
-
-        
-        
+    justify-self: flex-end;     
     
+}
+
+#calculator-answer:hover{
+    color: white;
 }
 
 #button-space{
@@ -138,8 +163,6 @@ body{
 
 #number-space{
     flex: auto; 
-    /* flex-grow: 0.9; */
-    /* flex-grow: 0.5; */
     display: flex;
     flex-direction: column;
     
@@ -152,7 +175,6 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /* align-items: center; */
  
 }
 
@@ -207,15 +229,18 @@ body{
 #calc-brand{
     font-size: 25px;
     text-align: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Plaster', cursive;
     font-weight: lighter;
     color: rgb(207, 207, 207);
-    text-shadow: 2px 2px 12px rgb(59, 59, 59),
-                -2px -2px 12px rgb(117, 117, 117);
     padding: 0;
     margin: 0;
     margin-bottom: 20px;
 }
+
+#calc-brand:hover{
+    color: white;
+}
+
 
 
 #dot{
@@ -226,17 +251,38 @@ body{
 }
 
 #dot:hover {
-    background-color: #e3a266;
-    color: white;
+    background-color: 	#Ffd800;
+    color: black;
 }
 
 #dot:active {
 
-    font-size: 27px;
+    font-size: 37px;
 
-    box-shadow: inset 4px 4px 12px #5c4800,
-             inset -4px -4px 12px #d3b547;
+    box-shadow: inset 4px 4px 12px 	#6e5d00,
+             inset -4px -4px 12px 	#fff6c2;
 }
+
+#equals:hover {
+    background-color: #34CD00;
+}
+
+#equals:active {
+    background-color: #34CD00;
+
+    box-shadow: inset 4px 4px 12px #165a00,
+             inset -4px -4px 12px #79f051;
+}
+
+
+
+
+#footer-container{
+    margin-top: 100px;
+    text-align: center;
+    color: rgb(207, 207, 207);
+}
+
 
 /*********************** CLASS ************************/
 .numbers{
@@ -248,16 +294,16 @@ body{
 
 .numbers:active {
 
-    font-size: 27px;
+    font-size: 37px;
 
-    box-shadow: inset 4px 4px 12px #705906,
-             inset -4px -4px 12px #d3b547;
+    box-shadow: inset 4px 4px 12px 	#6e5d00,
+             inset -4px -4px 12px 	#fff6c2;
 }
 
 
 .numbers:hover {
-    background-color: #e3a266;
-    color: white;
+    background-color: 	#Ffd800;
+    color: black;
 }
 
 .operator{
@@ -278,13 +324,8 @@ body{
 
     box-shadow: inset 4px 4px 12px #6c004a,
              inset -4px -4px 12px #ff72d2;
-    font-size: 27px;
+    font-size: 37px;
 }
-
-/* .operator-2{
-    height: 128px;
-    width: 128px;
-} */
 
 
 .operator-2:hover {
@@ -296,8 +337,8 @@ body{
 .operator-2:active {
 
     box-shadow: inset 4px 4px 12px #550e00,
-             inset -4px -4px 12px #fa7c62;
-    font-size: 27px;
+             inset -4px -4px 12px #ff9b87;
+    font-size: 37px;
 }
 
 

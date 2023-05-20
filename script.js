@@ -234,7 +234,7 @@ function operateExpression(){
         let checkResult = verifyResult(result);
         let resultToString = checkResult.toString();
 
-        screenAnswer.textContent = resultToString;
+        screenAnswer.textContent = 'Answer : '+resultToString;
         
         verifyEqual = 'yes';
 
@@ -277,7 +277,7 @@ function verifyResult (result){
         screen.textContent = displayString;
         alert('You can\'t divide by zero!');
         //console.log('verifying')
-        return;
+        return 'Trying to be funny are we?';
 
     }else if (isNaN(result)){
 
@@ -286,7 +286,7 @@ function verifyResult (result){
         screen.textContent = displayString;
         alert('Does not compute');
         //console.log('verifying')
-        return;
+        return 'Wasn\'t even a number';
 
     }else if(result%1 != 0){
 
@@ -310,7 +310,7 @@ function clearEverything(){
     screenAnswer.textContent = '';
     verifyEqual = 'no';
 
-    console.log('Everything cleared!')
+    // console.log('Everything cleared!')
 
     return;
 
@@ -319,7 +319,6 @@ function clearEverything(){
 
 
 function decimalNumber(){
-    //Remember to uncomment in the screenDisplay function before you run it
 
     const decimal = document.querySelector('#dot');
 
@@ -375,25 +374,6 @@ function decimalNumber(){
 
 }
 
-
-
-// Not using at the moment
-function latestCharacters (){
-
-    if (displayString === undefined){
-        return;
-    }
-
-    //console.log(displayString);
-
-    let splitDisplayString = displayString.split('');//Big space
-
-    let latestChar = splitDisplayString.slice(-1).toString();
-    
-    //console.log(latestChar);
-
-    return latestChar;
-}
 
 
 function backspace (){
