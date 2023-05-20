@@ -2,10 +2,10 @@
 
 button{
     flex: auto; 
-    width: 80px;
-    height: 30px;
-    margin: 10px;
-    font-size: 30px;
+    width: 110px;
+    height: 110px;
+    margin: 20px;
+    font-size: 45px;
     border-radius: 20px;
     border: 0px;
     text-shadow: 1px 1px 1px #666666af;
@@ -32,8 +32,8 @@ body{
 }
 
 #calculator-body{
-    width: 550px;
-    height: 800px; /***screen size plus button space size***/
+    width: 900px;
+    height: 1100px; /***screen size plus button space size***/
     display: flex;
     flex-direction: column;
     margin: auto; 
@@ -87,9 +87,9 @@ body{
 
 #calculator-screen{
     display: flex;
-    font-size: 400%;
+    font-size: 100px;
     font-weight: lighter;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Arial Narrow Bold', sans-serif;
     color: rgb(207, 207, 207);/*text color*/
     padding-right: 15px;
    
@@ -110,7 +110,7 @@ body{
 
     display: flex; 
     /* flex: auto; */
-    font-size: 400%;
+    font-size: 80px;
     font-weight: lighter;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: rgb(207, 207, 207);
@@ -132,19 +132,27 @@ body{
  padding: 20px;
  height: 130px;
  width: auto;
+ justify-content: center;
 
 }
 
 #number-space{
     flex: auto; 
+    /* flex-grow: 0.9; */
+    /* flex-grow: 0.5; */
     display: flex;
     flex-direction: column;
     
 }
 
 #operator-space{
+    flex: auto;
+    flex-grow: 0.5;
     padding-top: 3px;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: center; */
  
 }
 
@@ -181,16 +189,18 @@ body{
 
 #operator-row-1{
     display: flex;
+    flex: auto;
     flex-direction: column;
 }
 
 #operator-row-2{
     display: flex;
+    flex: auto;
     flex-direction: column;
 }
 
 #clear{
-    flex-grow: 0.4;
+    flex-grow: 0.26;
     font-weight: bolder;
 }
 
@@ -210,7 +220,8 @@ body{
 
 #dot{
     flex-grow: 0;
-    height: 82px;
+    height: 140px;
+    width: 128px;
 
 }
 
@@ -229,7 +240,9 @@ body{
 
 /*********************** CLASS ************************/
 .numbers{
-    height: 82px;
+    height: 140px;
+    /* height: 128px; */
+    width: 128px;
     
 }
 
@@ -250,6 +263,9 @@ body{
 .operator{
     
     color: #cfcfcf;
+    flex: auto;
+    height: 128px;
+    width: 128px;
 }
 
 
@@ -264,6 +280,11 @@ body{
              inset -4px -4px 12px #ff72d2;
     font-size: 27px;
 }
+
+/* .operator-2{
+    height: 128px;
+    width: 128px;
+} */
 
 
 .operator-2:hover {
